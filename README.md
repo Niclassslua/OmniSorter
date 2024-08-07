@@ -1,16 +1,5 @@
 # OmniSorter 🚀
 
-## Table of Contents 📚
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-    - [Web Interface](#web-interface)
-    - [API Endpoints](#api-endpoints)
-- [Examples](#examples)
-- [Supported Languages](#supported-languages)
-- [License](#license)
-
 ## Overview 🌟
 OmniSorter is a versatile sorting tool that can sort any array of strings based on various criteria and formats the output in multiple programming languages. Whether you're a developer, data analyst, or just someone who loves order, OmniSorter is here to help.
 
