@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorter Interface</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
+    <script src="dropdowns.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Sorter Interface</h1>
+<form id="sortForm">
+    <div>
+        <label for="inputArray">Input Array (comma separated):</label>
+        <input type="text" id="inputArray" required>
+    </div>
+    <div>
+        <label for="criteria">Sort Criteria:</label>
+        <div class="dropdown">
+            <div id="criteriaDropdown" class="dropdown-select">Select Criteria</div>
+            <div class="dropdown-content" id="criteriaOptions"></div>
+        </div>
+    </div>
+    <div>
+        <label for="order">Order:</label>
+        <div class="dropdown">
+            <div id="orderDropdown" class="dropdown-select">Select Order</div>
+            <div class="dropdown-content" id="orderOptions">
+                <div class="order-option" data-value="ascending"><i class="fas fa-sort-amount-up-alt"></i> Ascending</div>
+                <div class="order-option" data-value="descending"><i class="fas fa-sort-amount-down"></i> Descending</div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="orderHidden" name="order">
+    <div>
+        <label for="outputFormat">Output Format:</label>
+        <div class="dropdown">
+            <div id="formatDropdown" class="dropdown-select">Select Format</div>
+            <div class="dropdown-content" id="formatOptions">
+                <div class="format-option" data-value="json"><i class="fas fa-code"></i> JSON</div>
+                <div class="format-option" data-value="yaml"><i class="fas fa-file-code"></i> YAML</div>
+                <div class="format-option" data-value="xml"><i class="fas fa-file-code"></i> XML</div>
+                <div class="format-option" data-value="csv"><i class="fas fa-file-csv"></i> CSV</div>
+                <div class="format-option" data-value="table"><i class="fas fa-table"></i> HTML Table</div>
+                <div class="format-option" data-value="orderedList"><i class="fas fa-list-ol"></i> Ordered List</div>
+                <div class="format-option" data-value="unorderedList"><i class="fas fa-list-ul"></i> Unordered List</div>
+                <div class="format-option" data-value="chart"><i class="fas fa-chart-bar"></i> Chart</div>
+                <div class="format-option" data-value="textFile"><i class="fas fa-file-alt"></i> Text File</div>
+                <div class="format-option" data-value="heatmap"><i class="fas fa-th"></i> Heatmap</div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="outputFormatHidden" name="outputFormat">
+    <div>
+        <label for="language">Programming Language:</label>
+        <div class="dropdown">
+            <div id="languageDropdown" class="dropdown-select">Select Language</div>
+            <div class="dropdown-content" id="languageOptions">
+                <div class="language-option" data-value="python"><i class="devicon-python-plain"></i> Python</div>
+                <div class="language-option" data-value="javascript"><i class="devicon-javascript-plain"></i> JavaScript</div>
+                <div class="language-option" data-value="java"><i class="devicon-java-plain"></i> Java</div>
+                <div class="language-option" data-value="csharp"><i class="devicon-csharp-plain"></i> C#</div>
+                <div class="language-option" data-value="php"><i class="devicon-php-plain"></i> PHP</div>
+                <div class="language-option" data-value="typescript"><i class="devicon-typescript-plain"></i> TypeScript</div>
+                <div class="language-option" data-value="swift"><i class="devicon-swift-plain"></i> Swift</div>
+                <div class="language-option" data-value="ruby"><i class="devicon-ruby-plain"></i> Ruby</div>
+                <div class="language-option" data-value="cplusplus"><i class="devicon-cplusplus-plain"></i> C++</div>
+                <div class="language-option" data-value="go"><i class="devicon-go-plain"></i> Go</div>
+                <div class="language-option" data-value="rust"><i class="devicon-rust-plain"></i> Rust</div>
+                <div class="language-option" data-value="kotlin"><i class="devicon-kotlin-plain"></i> Kotlin</div>
+                <div class="language-option" data-value="dart"><i class="devicon-dart-plain"></i> Dart</div>
+                <div class="language-option" data-value="objectivec"><i class="devicon-objectivec-plain"></i> Objective-C</div>
+                <div class="language-option" data-value="scala"><i class="devicon-scala-plain"></i> Scala</div>
+                <div class="language-option" data-value="perl"><i class="devicon-perl-plain"></i> Perl</div>
+                <div class="language-option" data-value="lua"><i class="devicon-lua-plain"></i> Lua</div>
+                <div class="language-option" data-value="haskell"><i class="devicon-haskell-plain"></i> Haskell</div>
+                <div class="language-option" data-value="julia"><i class="devicon-julia-plain"></i> Julia</div>
+                <div class="language-option" data-value="elixir"><i class="devicon-elixir-plain"></i> Elixir</div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="language" name="language">
+    <div id="configButtons">
+        <button type="button" id="saveConfig">Save Config</button>
+        <button type="button" id="loadConfig">Load Config</button>
+    </div>
+    <button type="submit">Sort</button>
+</form>
+<h2>Sorted Result:</h2>
+<div id="result"></div>
+<canvas id="chart" style="display: none;"></canvas>
+</body>
+</html>
