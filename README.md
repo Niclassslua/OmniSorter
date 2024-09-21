@@ -132,3 +132,7 @@ OmniSorter supports code generation in the following programming languages:
 
 ## License 📜
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Made with ❤️
